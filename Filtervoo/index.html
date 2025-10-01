@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FilterVoo - Início</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div class="logo"><a href="./index.html"><img src="./img/logofiltervoo.png" alt="logo"></a></div>
+    <nav>
+
+      <a class="botaohome" href="./index.html"><img src="/" alt="home"></a>
+      <a href="sobre.html">Sobre nós</a>
+      <a href="desenvolvedores.html">Desenvolvedores</a>
+    </nav>
+  </header>
+
+  <div class="container">
+    <div class="box">
+      <h1>Viaje com previsibilidade</h1>
+      <p>Confira as chances de atraso do seu voo</p>
+
+<!-- ajustar conforme colab os filtros de pesquisa /-->
+
+      <form id="form-voo"> 
+        <select id="companhia">
+          <option value="">Companhia Aérea</option>
+          <option value="Latam">Latam</option>
+          <option value="Gol">Gol</option>
+          <option value="Azul">Azul</option>
+        </select>
+        <input type="text" id="numero" placeholder="Número do voo">
+        <select id="pais">
+          <option value="">País</option>
+          <option value="Brasil">Brasil</option>
+          <option value="EUA">EUA</option>
+        </select>
+        <select id="uf">
+          <option value="">UF</option>
+          <option value="SP">SP</option>
+          <option value="RJ">RJ</option>
+        </select>
+        <select id="cidade">
+          <option value="">Cidade</option>
+          <option value="São Paulo">São Paulo</option>
+          <option value="Rio de Janeiro">Rio de Janeiro</option>
+        </select>
+        <input type="text" id="origem" placeholder="Origem">
+        <input type="text" id="destino" placeholder="Destino">
+
+        <div>
+          <button type="submit" class="btn">Consultar atraso</button>
+          <a href="historico.html" class="btn">Histórico de atraso</a>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <footer><a href="./index.html"><img src="./img/logofiltervoo.png" alt=""></a></footer>
+
+  <script>
+    document.getElementById("form-voo").addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      let companhia = document.getElementById("companhia").value;
+      let numero = document.getElementById("numero").value;
+      let pais = document.getElementById("pais").value;
+      let uf = document.getElementById("uf").value;
+      let cidade = document.getElementById("cidade").value;
+      let origem = document.getElementById("origem").value;
+      let destino = document.getElementById("destino").value;
+
+      if (!companhia && !numero && !origem && !destino) {
+        alert("Preencha pelo menos um dos campos para consultar!");
+        return;
+      }
+
+      let consulta = {
+        companhia,
+        numero,
+        pais,
+        uf,
+        cidade,
+        origem,
+        destino,
+        data: new Date().toLocaleString()
+      };
+
+      let historico = JSON.parse(localStorage.getItem("historicoVoos")) || [];
+      historico.push(consulta);
+      localStorage.setItem("historicoVoos", JSON.stringify(historico));
+
+      alert("Consulta registrada com sucesso!");
+    });
+  </script>
+</body>
+</html>
+
+<!-- adds comentários /-->
