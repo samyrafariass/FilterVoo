@@ -1,0 +1,129 @@
+/* Reset básico */
+* {
+    max-width: 1200;
+    min-width: auto;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+  }
+  
+  body {
+    background: url("./img/fundo.png") no-repeat center center fixed;
+    background-size: cover;
+    color: #222;
+  }
+  
+  /* Header */
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px;
+    background: #fff;
+    box-shadow: 0px 2px 5px rgba(0,0,0,0.1);
+  }
+  
+  header .logo {
+    font-size: 20px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  header nav a {
+    margin-left: 20px;
+    text-decoration: none;
+    background: #1d4ed8;
+    color: #fff;
+    padding: 8px 14px;
+    border-radius: 6px;
+    transition: 0.3s;
+  }
+  
+  header nav a:hover {
+    background: #2563eb;
+  }
+  
+  /* Conteúdo central */
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+    text-align: center;
+  }
+  
+  /* Caixa branca */
+  .box {
+    background: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0px 5px 15px rgba(0,0,0,0.2);
+    width: 80%;
+    max-width: 800px;
+  }
+  
+  .box h1, .box h2 {
+    margin-bottom: 15px;
+  }
+  
+  .box p {
+    margin-bottom: 20px;
+    color: #444;
+  }
+  
+  /* Inputs */
+  .box input, .box select {
+    padding: 10px;
+    margin: 8px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    width: calc(30% - 20px);
+  }
+  
+  .btn {
+    background: #1d4ed8;
+    color: white;
+    padding: 10px 20px;
+    margin: 10px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  .btn:hover {
+    background: #2563eb;
+  }
+  
+  /* Página desenvolvedores */
+  .devs {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 40px;
+  }
+  
+  .dev {
+    text-align: center;
+  }
+  
+  .dev img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 3px solid #1d4ed8;
+    margin-bottom: 10px;
+  }
+  
+  /* Rodapé */
+  footer {
+    align-self:self-end fixed;
+    text-align: center;
+    padding: 15px;
+    background: #fff;
+    margin-top: 30px;
+  }
+  

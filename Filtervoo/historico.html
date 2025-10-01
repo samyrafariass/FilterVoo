@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FilterVoo - Histórico</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div class="logo"><a href="./index.html"><img src="./img/logofiltervoo.png" alt="logo"></a></div>
+    <nav>
+      <a href="index.html">Início</a>
+      <a href="sobre.html">Sobre nós</a>
+      <a href="desenvolvedores.html">Desenvolvedores</a>
+    </nav>
+  </header>
+
+  <div class="container">
+    <div class="box">
+      <h1>Histórico de Consultas</h1>
+      <table border="1" width="100%" cellpadding="8">
+        <thead>
+          <tr>
+            <th>Companhia</th>
+            <th>Nº Voo</th>
+            <th>País</th>
+            <th>UF</th>
+            <th>Cidade</th>
+            <th>Origem</th>
+            <th>Destino</th>
+            <th>Data</th>
+          </tr>
+        </thead>
+        <tbody id="tabela-historico"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <footer><a href="./index.html"><img src="./img/logofiltervoo.png" alt=""></a></footer>
+
+  <script>
+    let historico = JSON.parse(localStorage.getItem("historicoVoos")) || [];
+    let tabela = document.getElementById("tabela-historico");
+
+    if (historico.length === 0) {
+      tabela.innerHTML = "<tr><td colspan='8'>Nenhuma consulta realizada ainda.</td></tr>";
+    } else {
+      historico.forEach(item => {
+        let row = `<tr>
+          <td>${item.companhia || "-"}</td>
+          <td>${item.numero || "-"}</td>
+          <td>${item.pais || "-"}</td>
+          <td>${item.uf || "-"}</td>
+          <td>${item.cidade || "-"}</td>
+          <td>${item.origem || "-"}</td>
+          <td>${item.destino || "-"}</td>
+          <td>${item.data}</td>
+        </tr>`;
+        tabela.innerHTML += row;
+      });
+    }
+  </script>
+</body>
+</html>
